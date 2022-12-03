@@ -28,14 +28,17 @@ def draw():
     
     # 2. Use the rect() function to draw a box in the upper left
     # corner of the screen:
-    # rect(0, 0, 30, 30)
+    rect(0, 0, 30, 30)
     
     # 3. Now find the x and y coordinates where the tail attaches
     # to the donkey and draw another box with a side of 50
-    
+    rect(680,80,50,50)
     # 4. Change your code so the donkey is only shown when the
     # mouse is inside the corner bounding box. 
-    #
+    if mouseX > 0 and mouseX < 30 and mouseY > 0 and mouseY < 30:
+        background(donkey)
+    else:
+        background("#FFFFFF")
     # Hint: check if mouseX is greater than 0 and less than 30
     # and y is greater than 0 and less than 30
     
@@ -44,8 +47,8 @@ def draw():
     
     # 6. Use the image() method to draw the tail at the mouseX
     # and mouseY location. For example,
-    # image(tail, mouseX, mouseY)
-    
+    if mousePressed:
+        image(tail, mouseX, mouseY)
     # 7. Now, adjust your code so the tail sticks when you click the
     # mouse (this means it will no longer move when the mouse moves)
     #
@@ -54,5 +57,7 @@ def draw():
         
     # 8. When the tail has been pinned, write code to check if the
     # tail was pinned inside the target bounding box.
-    
+    if mousePressed and mouseX > 680 and mouseX < 730 and mouseY > 80 and mouseY < 110:
     # 9. Show the donkey so the user knows where they pinned the tail.
+        background(donkey)
+        image(tail, mouseX, mouseY)
